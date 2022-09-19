@@ -15,30 +15,35 @@ const TestRedux = () => {
 
   const handleChange = (event) => setColorInput(event.target.value);//Event handlers to capture input values
   const handleList = (event) => setBulbInput(event.target.value);
-  
 
-  return <div>
+
+  return <section>
     <h3>Lamp with redux</h3>
-    <button onClick={() => dispatch(toggle())}>Switch</button><br /> 
-    <p>{lightSwitch}</p>
-    <br />
-    <label htmlFor="color">Choose your light color</label><br />
-    <input type="text" name="color" onChange={handleChange} /><br /><br />
-    {/* The action passed to the dispatch method only requires to specify the action payload */}
-    <button onClick={() => dispatch(changeLightColor(colorInput))} style={{ backgroundColor: lightColor }}>Change light color</button><br />
 
-    <p>{lightColor}</p>
+    <article>
+      <button onClick={() => dispatch(toggle())}>Switch</button><br />
+      <p>{lightSwitch}</p>
+    </article>
 
-    <p>List bulbs</p>
-    <input type="text" name="bulbs" onChange={handleList} />
-    <button onClick={() => dispatch(addBulb(bulbInput))}>Add Bulb</button>
-    {bulbList.map((e, i) => <p key={i}>{e}</p>)}
-    <button onClick={() => dispatch(deleteBulbList())}>Delete bulb list</button>
+    <article>
+      <label htmlFor="color">Choose your light color</label><br />
+      <input type="text" name="color" onChange={handleChange} /><br /><br />
+      {/* The action passed to the dispatch method only requires to specify the action payload */}
+      <button onClick={() => dispatch(changeLightColor(colorInput))} style={{ backgroundColor: lightColor }}>Change light color</button><br />
+      <p>{lightColor}</p>
+    </article>
+
+    <article>
+      <p>List bulbs</p>
+      <input type="text" name="bulbs" onChange={handleList} />
+      <button onClick={() => dispatch(addBulb(bulbInput))}>Add Bulb</button>
+      {bulbList.map((e, i) => <p key={i}>{e}</p>)}
+      <button onClick={() => dispatch(deleteBulbList())}>Delete bulb list</button>
+    </article>
 
 
 
-
-  </div>;
+  </section>;
 }
 
 
